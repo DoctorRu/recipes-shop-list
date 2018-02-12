@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActionSheetController, AlertController, NavParams} from "ionic-angular";
+import {ActionSheetController, AlertController, NavParams, ToastController} from "ionic-angular";
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -15,7 +15,8 @@ export class EditRecipePage implements OnInit {
 
 	constructor(private navParams: NavParams,
 	            private actionSheetController: ActionSheetController,
-	            private alertCtrl: AlertController) {
+	            private alertCtrl: AlertController,
+	            private toastCtrl: ToastController) {
 	}
 
 	ngOnInit() {
@@ -44,9 +45,17 @@ export class EditRecipePage implements OnInit {
 						const fArray: FormArray = <FormArray>this.recipeForm.get('ingredients');
 						const len = fArray.length;
 						if (len > 0) {
-							for (let i = len - 1; i >= 0; i-- ) {
+							for (let i = len - 1; i >= 0; i--) {
 								fArray.removeAt(i);
 							}
+
+							const toast = this.toastCtrl.create({
+								message: 'All ingredient were deleted',
+								duration: 1500,
+								position: 'botton'
+							});
+
+							toast.present();
 						}
 
 					}
@@ -68,8 +77,6 @@ export class EditRecipePage implements OnInit {
 				'description': new FormControl(null, Validators.required),
 				'difficulty': new FormControl('Medium', Validators.required),
 				'ingredients': new FormArray([])
-
-
 			});
 
 	}
@@ -92,10 +99,26 @@ export class EditRecipePage implements OnInit {
 					text: 'Add',
 					handler: data => {
 						if (data.name.trim() == '' || data.name == null) {
+							const toast = this.toastCtrl.create({
+								message: 'Please enter a valid value!',
+								duration: 1500,
+								position: 'botton'
+							});
+
+							toast.present();
 							return;
 						}
 						(<FormArray>this.recipeForm.get('ingredients'))
 							.push(new FormControl(data.name, Validators.requiredTrue));
+
+						const toast = this.toastCtrl.create({
+							message: 'Item added!',
+							duration: 1500,
+							position: 'botton'
+						});
+
+						toast.present();
+
 					}
 				}
 			]
