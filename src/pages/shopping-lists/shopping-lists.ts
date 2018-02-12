@@ -11,6 +11,8 @@ import {Ingredient} from "../../models/ingredient";
 export class ShoppingListsPage {
 	listItems: Ingredient[];
 
+	public ingredientName: string = "Carrot";
+
 	constructor(private slService: ShoppingListService){
 
 	}
