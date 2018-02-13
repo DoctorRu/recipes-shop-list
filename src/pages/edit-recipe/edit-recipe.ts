@@ -129,7 +129,7 @@ export class EditRecipePage implements OnInit {
 							return;
 						}
 						(<FormArray>this.recipeForm.get('ingredients'))
-							.push(new FormControl(data.name, Validators.requiredTrue));
+							.push(new FormControl(data.name, Validators.required));
 
 						const toast = this.toastCtrl.create({
 							message: 'Item added!',
