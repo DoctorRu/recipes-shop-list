@@ -47,12 +47,20 @@ export class EditRecipePage implements OnInit {
 			})
 		}
 
-		this.recipesService.addRecipe(
-			value.title,
-			value.description,
-			value.difficulty,
-			ingredients
-		);
+		if (this.mode == 'Edit') {
+			this.recipesService.updateRecipe(this.index,
+				value.title,
+				value.description,
+				value.difficulty,
+				ingredients)
+		} else {
+			this.recipesService.addRecipe(
+				value.title,
+				value.description,
+				value.difficulty,
+				ingredients
+			);
+		}
 
 		this.recipeForm.reset();
 		this.navCtrl.popToRoot();
@@ -166,4 +174,5 @@ export class EditRecipePage implements OnInit {
 			'difficulty': new FormControl(difficulty, Validators.required),
 			'ingredients': new FormArray(ingredients)
 		});
-	}}
+	}
+}
