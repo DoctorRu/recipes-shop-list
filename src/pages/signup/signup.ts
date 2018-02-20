@@ -6,6 +6,7 @@ import {NgForm} from "@angular/forms";
 	templateUrl: 'signup.html',
 })
 export class SignupPage {
+
 	onSignup(form: NgForm){
 		console.log(form.value)
 	}

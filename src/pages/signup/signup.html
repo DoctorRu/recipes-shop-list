@@ -16,6 +16,7 @@
 <ion-content padding>
 	<form #f="ngForm" (ngSubmit)="onSignup(f)">
 		<ion-list>
+
 			<ion-item>
 				<ion-label fixed>Mail</ion-label>
 				<ion-input type="email"
@@ -34,7 +35,9 @@
 				           [minlength]="6">
 				</ion-input>
 			</ion-item>
+
 		</ion-list>
+
 		<button ion-button
 		        block
 		        type="submit"
@@ -43,5 +46,4 @@
 		</button>
 
 	</form>
-
 </ion-content>
