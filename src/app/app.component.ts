@@ -1,10 +1,11 @@
 import {Component, ViewChild} from '@angular/core';
 import {MenuController, NavController, Platform} from 'ionic-angular';
-import {StatusBar} from '@ionic-native/status-bar';
-import {SplashScreen} from '@ionic-native/splash-screen';
+import firebase from 'firebase';
+
 import {TabsPage} from "../pages/tabs/tabs";
 import {SigninPage} from "../pages/signin/signin";
 import {SignupPage} from "../pages/signup/signup";
+
 
 @Component({
 	templateUrl: 'app.html'
@@ -16,13 +17,14 @@ export class MyApp {
 	@ViewChild('nav') nav: NavController;
 
 	constructor(platform: Platform,
-	            statusBar: StatusBar,
-	            splashScreen: SplashScreen,
-	            private menuCtrl: MenuController
-	) {
+	            private menuCtrl: MenuController) {
+
+		firebase.initializeApp({
+			apiKey: "AIzaSyCF1c1enmeJmDHt_G-DhY_R5DLcwtQXbQk",
+			authDomain: "recipe-book-11b74.firebaseapp.com"
+		});
+
 		platform.ready().then(() => {
-			statusBar.styleDefault();
-			splashScreen.hide();
 		});
 	}
 
