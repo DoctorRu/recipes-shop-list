@@ -3,6 +3,7 @@ import {ErrorHandler, NgModule} from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
+import {HttpClientModule} from "@angular/common/http";
 
 import {MyApp} from './app.component';
 import {EditRecipePage} from "../pages/edit-recipe/edit-recipe";
@@ -15,6 +16,7 @@ import {RecipeServices} from "../services/recipes";
 import {SigninPage} from "../pages/signin/signin";
 import {SignupPage} from "../pages/signup/signup";
 import {AuthService} from "../services/auth";
+import {SLOptionsPage} from "../pages/shopping-lists/sl-options/sl-options";
 
 @NgModule({
 	declarations: [
@@ -25,11 +27,13 @@ import {AuthService} from "../services/auth";
 		ShoppingListsPage,
 		TabsPage,
 		SigninPage,
-		SignupPage
+		SignupPage,
+		SLOptionsPage
 	],
 	imports: [
 		BrowserModule,
-		IonicModule.forRoot(MyApp)
+		IonicModule.forRoot(MyApp),
+		HttpClientModule
 	],
 	bootstrap: [ IonicApp ],
 	entryComponents: [
@@ -40,7 +44,8 @@ import {AuthService} from "../services/auth";
 		ShoppingListsPage,
 		TabsPage,
 		SigninPage,
-		SignupPage
+		SignupPage,
+		SLOptionsPage
 	],
 	providers: [
 		{provide: ErrorHandler, useClass: IonicErrorHandler},
