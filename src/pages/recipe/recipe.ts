@@ -3,7 +3,7 @@ import {NavController, NavParams} from 'ionic-angular';
 import {Recipe} from "../../models/recipe";
 import {EditRecipePage} from "../edit-recipe/edit-recipe";
 import {ShoppingListService} from "../../services/shopping-list";
-import {RecipeServices} from "../../services/recipes";
+import {RecipesService} from "../../services/recipes";
 
 @Component({
 	selector: 'page-recipe',
@@ -16,7 +16,7 @@ export class RecipePage implements OnInit {
 	constructor(public navCtrl: NavController,
 	            public navParams: NavParams,
 	            public slService: ShoppingListService,
-	            public recipesService: RecipeServices) {
+	            public recipesService: RecipesService) {
 	}
 
 	ngOnInit() {

@@ -32,7 +32,16 @@ export class ShoppingListService{
 	storeList(token: string){
 		const userId = this.authService.getActiveUser().uid;
 
-		return this.http.put('https://recipe-book-11b74.firebaseio.com/' + userId + '/shopping-list.json?auth='
-			+ token, this.ingredients)
+		return this.http.put('https://recipe-book-11b74.firebaseio.com/' + userId + '/shopping-list.json?auth=' + token,
+			this.ingredients)
 	}
+
+	fetchList(token: string){
+		const userId = this.authService.getActiveUser().uid;
+
+		return this.http.get('https://recipe-book-11b74.firebaseio.com/'
+			+ userId + '/shopping-list.json?auth=' + token)
+	}
+
+
 }

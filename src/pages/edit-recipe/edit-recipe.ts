@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActionSheetController, AlertController, NavController, NavParams, ToastController} from "ionic-angular";
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
-import {RecipeServices} from "../../services/recipes";
+import {RecipesService} from "../../services/recipes";
 import {Recipe} from "../../models/recipe";
 
 @Component({
@@ -22,7 +22,7 @@ export class EditRecipePage implements OnInit {
 	            private actionSheetController: ActionSheetController,
 	            private alertCtrl: AlertController,
 	            private toastCtrl: ToastController,
-	            private recipesService: RecipeServices,
+	            private recipesService: RecipesService,
 	            private navCtrl: NavController) {
 	}
 

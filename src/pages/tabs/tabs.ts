@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ShoppingListsPage} from "../shopping-lists/shopping-lists";
+import {ShoppingListPage} from "../shopping-list/shopping-list";
 import {RecipesPage} from "../recipes/recipes";
 
 @Component({
@@ -8,6 +8,6 @@ import {RecipesPage} from "../recipes/recipes";
 })
 
 export class TabsPage {
-	slPage = ShoppingListsPage;
+	slPage = ShoppingListPage;
 	recipesPage = RecipesPage;
 }
